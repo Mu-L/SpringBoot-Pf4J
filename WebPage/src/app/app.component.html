@@ -1,0 +1,60 @@
+<!-- NG-ZORRO -->
+
+<div style="margin: 24px">
+  <nz-tabset>
+    <nz-tab nzTitle="插件管理">
+      <nz-table #basicTable [nzData]="dataSet" nzBordered >
+        <thead>
+        <tr>
+          <th>status</th>
+          <th>id</th>
+          <th>version</th>
+          <th>name</th>
+          <th>operation</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let data of basicTable.data">
+          <td>{{data.status}}</td>
+          <td>{{data.id}}</td>
+          <td>{{data.version}}</td>
+          <td>{{data.name}}</td>
+          <td>
+            <div *ngIf="data.status == 'STARTED'">
+                <nz-upload
+                   style="display: inline"
+                   [nzAccept]="'.jar'"
+                   [nzShowUploadList]="false"
+                   (nzChange)="handleChange($event)"
+                  [nzAction]="'/api/great?id=' + data.id"
+                >
+                  <button nz-button>
+                    <i nz-icon nzType="upload"></i>
+                    更新
+                  </button>
+                </nz-upload>
+              <nz-divider nzType="vertical"></nz-divider>
+              <a  (click)="stop(data.id)">禁用</a>
+            </div>
+            <div *ngIf="data.status !== 'STARTED'">
+              <a (click)="start(data.id)">启用</a>
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </nz-table>
+    </nz-tab>
+    <nz-tab nzTitle="Plan A 测试">
+      <button nz-button nzType="primary" (click)="testPlanA()">测试 Plan A</button>
+      <nz-divider ></nz-divider>
+      <textarea rows="4" nz-input [(ngModel)]="greatStr"></textarea>
+    </nz-tab>
+    <nz-tab nzTitle="Plan B 测试">
+      <textarea rows="10" nz-input [(ngModel)]="orderJson"></textarea>
+      <nz-divider></nz-divider>
+      <button nz-button nzType="primary" (click)="testPlanB()">输入上方json 点击按钮在下方查看响应结果</button>
+      <nz-divider ></nz-divider>
+      <textarea rows="10" nz-input  [(ngModel)]="resultJson"></textarea>
+    </nz-tab>
+  </nz-tabset>
+</div>
