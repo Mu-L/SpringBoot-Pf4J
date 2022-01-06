@@ -25,7 +25,6 @@ public class Pf4jSpringBootApplication {
     private static void initPluginManager() {
         pluginManager.loadPlugins();
         pluginManager.startPlugins();
-        pluginManager.disablePlugin("ImplPlanB");
         // retrieves the extensions for Greeting extension point
         List<Greeting> greetings = pluginManager.getExtensions(Greeting.class);
         System.out.println(String.format("Found %d extensions for extension point '%s'", greetings.size(), Greeting.class.getName()));
