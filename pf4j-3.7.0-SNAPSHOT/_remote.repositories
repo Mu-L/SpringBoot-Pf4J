@@ -1,0 +1,7 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Thu Jan 06 14:17:08 CST 2022
+pf4j-3.7.0-SNAPSHOT-tests.jar>=
+pf4j-3.7.0-SNAPSHOT-sources.jar>=
+pf4j-3.7.0-SNAPSHOT-javadoc.jar>=
+pf4j-3.7.0-SNAPSHOT.jar>=
+pf4j-3.7.0-SNAPSHOT.pom>=
