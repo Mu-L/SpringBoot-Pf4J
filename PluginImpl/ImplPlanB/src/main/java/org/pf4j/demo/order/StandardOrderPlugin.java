@@ -91,7 +91,7 @@ public class StandardOrderPlugin extends Plugin {
                     .append(orderInfo.path(Const.COUNT).asInt()).append(" ,")
                     .append(orderInfo.path(Const.BUYER).asInt()).append(" ,")
                     .append("'").append(orderInfo.path(Const.ADDRESS).asText()).append("' ,")
-                    .append(orderInfo.path(Const.DATE_CREATED.toUpperCase(Locale.ROOT)).asInt()).append(" )");
+                    .append(orderInfo.path(Const.DATE_CREATED.toUpperCase(Locale.ROOT)).asLong()).append(" )");
             return Collections.singletonList(stringBuilder.toString());
         }
     }
